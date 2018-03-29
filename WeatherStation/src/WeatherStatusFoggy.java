@@ -1,0 +1,2 @@
+public class WeatherStatusFoggy {
+}
