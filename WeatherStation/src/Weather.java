@@ -5,12 +5,7 @@ public class Weather extends Data {
     }
 
     @Override
-    public void getWeather() {
-
-    }
-
-    @Override
     public void getData() {
-        
+
     }
 }

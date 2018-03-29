@@ -7,8 +7,8 @@ public class WeatherStation {
 
     }
 
-    public void getApiData(IApiHandler apiCall){
-        apiCall.execute();
+    public void getApiData(Data weather){
+        weather.apiCall.execute();
     }
 
 }

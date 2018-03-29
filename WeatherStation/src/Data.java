@@ -5,5 +5,4 @@ public abstract class Data {
         this.apiCall = apiCall;
     }
     public abstract void getData();
-    public abstract void getWeather();
 }

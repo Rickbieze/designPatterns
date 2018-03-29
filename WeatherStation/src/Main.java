@@ -4,7 +4,7 @@ public class Main {
     private static CurrentWeater currentWeater;
     private static WeatherStation weatherStation;
 
-    private static Weather weather;
+    private static Data weather;
 
     public static void main(String[] args) {
         test();
@@ -19,7 +19,14 @@ public class Main {
         historyWeather = new HistoryWeather();
         currentWeater = new CurrentWeater();
 
-        weatherStation.getApiData(historyWeather);
-        weatherStation.getApiData(currentWeater);
+
+        weather = new Weather(new HistoryWeather());
+
+
+        weatherStation.getApiData(weather);
+
+        weather = new Weather(currentWeater);
+
+        weatherStation.getApiData(weather);
     }
 }
