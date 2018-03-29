@@ -1,15 +1,16 @@
-public class Weather {
+public class Weather extends Data {
 
-    public Weather(){
+    public Weather(IApiHandler apiCall){
+        super(apiCall);
+    }
+
+    @Override
+    public void getWeather() {
 
     }
 
-    public void getCurrentWeather(IApiHandler apiCall){
-
+    @Override
+    public void getData() {
+        
     }
-
-    public void getHistoryWeather(){
-
-    }
-
 }

@@ -4,6 +4,8 @@ public class Main {
     private static CurrentWeater currentWeater;
     private static WeatherStation weatherStation;
 
+    private static Weather weather;
+
     public static void main(String[] args) {
         test();
     }
@@ -16,6 +18,7 @@ public class Main {
         weatherStation = new WeatherStation();
         historyWeather = new HistoryWeather();
         currentWeater = new CurrentWeater();
+
         weatherStation.getApiData(historyWeather);
         weatherStation.getApiData(currentWeater);
     }

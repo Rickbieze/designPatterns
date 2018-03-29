@@ -1,4 +1,4 @@
-public class CurrentWeater extends ApiDataAdapter {
+public class CurrentWeater implements IApiHandler {
 
     public void getCurrentWeather(){
         System.out.println("get current weather ");

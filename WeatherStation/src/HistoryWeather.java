@@ -1,4 +1,4 @@
-public class HistoryWeather extends ApiDataAdapter {
+public class HistoryWeather implements IApiHandler {
 
     public void getHistoryWeather(){
         System.out.println("get history weather yeye");
