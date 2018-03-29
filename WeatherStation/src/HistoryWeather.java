@@ -1,11 +1,11 @@
 public class HistoryWeather implements IApiHandler {
 
-    public void getHistoryWeather(){
-        System.out.println("get history weather yeye");
+    public String getHistoryWeather(){
+        return "sunny";
     }
 
     @Override
-    public void execute() {
-        getHistoryWeather();
+    public String execute() {
+        return getHistoryWeather();
     }
 }

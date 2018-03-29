@@ -1,11 +1,11 @@
 public class CurrentWeater implements IApiHandler {
 
-    public void getCurrentWeather(){
-        System.out.println("get current weather ");
+    public String getCurrentWeather(){
+        return "rainy";
     }
     @Override
-    public void execute() {
-        getCurrentWeather();
+    public String execute() {
+        return getCurrentWeather();
     }
 
 }
