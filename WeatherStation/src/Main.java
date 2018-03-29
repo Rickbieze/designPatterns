@@ -1,19 +1,22 @@
 public class Main {
 
-    private HistoryWeather historyWeather;
-    private CurrentWeater currentWeater;
-    private WeatherStation weatherStation;
+    private static HistoryWeather historyWeather;
+    private static CurrentWeater currentWeater;
+    private static WeatherStation weatherStation;
 
     public static void main(String[] args) {
-
+        test();
     }
 
     public Main(){
-        weatherStation = new WeatherStation();
+
     }
 
-    public void test(){
+    public static void test(){
+        weatherStation = new WeatherStation();
         historyWeather = new HistoryWeather();
+        currentWeater = new CurrentWeater();
         weatherStation.getApiData(historyWeather);
+        weatherStation.getApiData(currentWeater);
     }
 }
