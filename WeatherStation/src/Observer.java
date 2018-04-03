@@ -1,4 +1,4 @@
 public abstract class Observer {
-    protected Main subject;
+    protected WeatherStation subject;
     public abstract void update();
 }

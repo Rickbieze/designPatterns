@@ -7,10 +7,15 @@ public class Main {
     }
 
     public Main(){
-
     }
 
     public static void test(){
-        weatherStation = new WeatherStation();
+
+        WeatherStation subject = new WeatherStation();
+
+        new WeatherStationGUI(subject);
+
+        subject.setState(subject.returnCurrentWeather());
     }
+
 }

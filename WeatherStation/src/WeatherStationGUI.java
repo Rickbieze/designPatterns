@@ -1,13 +1,12 @@
 public class WeatherStationGUI extends Observer {
 
-    public WeatherStationGUI(Main main){
-        this.subject = main;
+    public WeatherStationGUI(WeatherStation subject){
+        this.subject = subject;
         this.subject.attach(this);
     }
 
-
     @Override
     public void update() {
-        subject.getState();
+        System.out.println( "Weather: " + subject.getState() );
     }
 }
