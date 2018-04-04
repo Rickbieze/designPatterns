@@ -4,13 +4,13 @@ import java.util.List;
 public class WeatherStation {
 
     private List<Observer> observers = new ArrayList<Observer>();
-    private String state;
+    private WeatherResponse state;
 
     private static HistoryWeather historyWeather;
     private static CurrentWeater currentWeater;
 
-    public String current;
-    public String history;
+    public WeatherResponse current;
+    public WeatherResponse history;
 
     public ArrayList<SimpleWeatherStatus> weatherStatuses;
 
@@ -26,11 +26,10 @@ public class WeatherStation {
         weather = new Weather(currentWeater);
         current = getApiData(weather);
 
-        weatherStatuses = new ArrayList<>(10);
+        weatherStatuses = new ArrayList<>();
     }
 
     public void setStatus(int[] weatherStatusCodes){
-
         WeatherStatus weatherStatus = new WeatherStatus();
         for (int weatherStatusCode: weatherStatusCodes) {
             switch (weatherStatusCode){
@@ -42,34 +41,37 @@ public class WeatherStation {
                 default: weatherStatuses.add(new WeatherStatus()); break;
             }
         }
-        getWeatherStatusMessage();
     }
 
-    public void getWeatherStatusMessage(){
-        String message = "";
+    public String getWeatherStatusMessage(WeatherResponse toFormat){
+        String message = "Temperature:" + toFormat.getTemperature() +System.lineSeparator()+" Humidity: " + toFormat.getHumidity() +System.lineSeparator() +" weatherstatuses: " ;
         for (SimpleWeatherStatus status: weatherStatuses){
-         message += status.getWeatherStatus();
+         message += status.getWeatherStatus() + " ";
         }
-        System.out.println(message);
+        return message;
     }
 
-    public String getApiData(Data weather){
+    public WeatherResponse getApiData(Data weather){
         return weather.apiCall.execute();
     }
 
-    public String returnCurrentWeather(){
+    public WeatherResponse returnCurrentWeather(){
+        setStatus(current.getWeatherStatusses());
+        getWeatherStatusMessage(current);
         return current;
     }
 
-    public String returnHistoryWeather(){
+    public WeatherResponse returnHistoryWeather(){
+        setStatus(history.getWeatherStatusses());
+        getWeatherStatusMessage(history);
         return history;
     }
 
     public String getState() {
-        return state;
+        return getWeatherStatusMessage(state);
     }
 
-    public void setState(String state) {
+    public void setState(WeatherResponse state) {
         this.state = state;
         notifyAllObservers();
     }

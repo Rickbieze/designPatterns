@@ -1,3 +1,3 @@
 public interface IApiHandler {
-    String execute();
+    WeatherResponse execute();
 }

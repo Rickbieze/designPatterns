@@ -6,6 +6,11 @@ public class WeatherStatusCloudy extends WeatherStatusDecorator {
 
     @Override
     public String getWeatherStatus() {
+        return getCloudyStatus();
+
+    }
+
+    private String getCloudyStatus(){
         return "Cloudy";
     }
 

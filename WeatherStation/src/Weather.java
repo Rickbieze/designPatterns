@@ -4,8 +4,4 @@ public class Weather extends Data {
         super(apiCall);
     }
 
-    @Override
-    public void getData() {
-
-    }
 }

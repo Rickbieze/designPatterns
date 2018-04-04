@@ -15,11 +15,8 @@ public class Main {
 
 
         new WeatherStationGUI(subject);
-        int[] weatherstatustest = new int[2];
-        weatherstatustest[0]= 0;
-        weatherstatustest[1] = 1;
-        subject.setStatus(weatherstatustest);
         subject.setState(subject.returnCurrentWeather());
+
     }
 
 }
