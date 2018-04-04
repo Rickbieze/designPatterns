@@ -12,6 +12,8 @@ public class WeatherStation {
     public String current;
     public String history;
 
+    public ArrayList<SimpleWeatherStatus> weatherStatuses;
+
     private static Data weather;
 
     public WeatherStation(){
@@ -23,6 +25,32 @@ public class WeatherStation {
 
         weather = new Weather(currentWeater);
         current = getApiData(weather);
+
+        weatherStatuses = new ArrayList<>(10);
+    }
+
+    public void setStatus(int[] weatherStatusCodes){
+
+        WeatherStatus weatherStatus = new WeatherStatus();
+        for (int weatherStatusCode: weatherStatusCodes) {
+            switch (weatherStatusCode){
+                case 0: weatherStatuses.add(new WeatherStatusCloudy(weatherStatus)); break;
+                case 1: weatherStatuses.add(new WeatherStatusFoggy(weatherStatus)); break;
+                case 2: weatherStatuses.add(new WeatherStatusRainy(weatherStatus)); break;
+                case 3: weatherStatuses.add(new WeatherStatusSnowy(weatherStatus)); break;
+                case 4: weatherStatuses.add(new WeatherStatusSunny(weatherStatus)); break;
+                default: weatherStatuses.add(new WeatherStatus()); break;
+            }
+        }
+        getWeatherStatusMessage();
+    }
+
+    public void getWeatherStatusMessage(){
+        String message = "";
+        for (SimpleWeatherStatus status: weatherStatuses){
+         message += status.getWeatherStatus();
+        }
+        System.out.println(message);
     }
 
     public String getApiData(Data weather){

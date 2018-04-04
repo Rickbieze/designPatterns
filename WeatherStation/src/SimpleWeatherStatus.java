@@ -1,2 +1,3 @@
-public class SimpleWeatherStatus {
+public interface SimpleWeatherStatus {
+    String getWeatherStatus();
 }
