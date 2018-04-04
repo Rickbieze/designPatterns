@@ -4,4 +4,5 @@ public abstract class Data {
     protected Data(IApiHandler apiCall){
         this.apiCall = apiCall;
     }
+
 }

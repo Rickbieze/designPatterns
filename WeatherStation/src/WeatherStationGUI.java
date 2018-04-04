@@ -1,4 +1,4 @@
-public class WeatherStationGUI extends Observer {
+public class WeatherStationGUI extends WeatherObserver {
 
     public WeatherStationGUI(WeatherStation subject){
         this.subject = subject;
