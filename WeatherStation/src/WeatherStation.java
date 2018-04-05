@@ -26,10 +26,10 @@ public class WeatherStation {
         weather = new Weather(currentWeater);
         current = getApiData(weather);
 
-        weatherStatuses = new ArrayList<>();
     }
 
     public void setStatus(int[] weatherStatusCodes){
+        weatherStatuses = new ArrayList<>();
         WeatherStatus weatherStatus = new WeatherStatus();
         for (int weatherStatusCode: weatherStatusCodes) {
             switch (weatherStatusCode){
@@ -44,7 +44,7 @@ public class WeatherStation {
     }
 
     public String getWeatherStatusMessage(WeatherResponse toFormat){
-        String message = "Temperature:" + toFormat.getTemperature() +System.lineSeparator()+" Humidity: " + toFormat.getHumidity() +System.lineSeparator() +" weatherstatuses: " ;
+        String message = "Location: "+ toFormat.getLocation() + System.lineSeparator() + "date: " + toFormat.getType() + System.lineSeparator() + "Temperature: " + toFormat.getTemperature() +System.lineSeparator()+" Humidity: " + toFormat.getHumidity() +System.lineSeparator() +" weatherstatuses: " ;
         for (SimpleWeatherStatus status: weatherStatuses){
          message += status.getWeatherStatus() + " ";
         }

@@ -4,7 +4,7 @@ public class HistoryWeather implements IApiHandler {
         int[] weatherstatuses = new int[2];
         weatherstatuses[0]= 2;
         weatherstatuses[1] = 3;
-        return new WeatherResponse(11,13,weatherstatuses);
+        return new WeatherResponse(11,13,weatherstatuses ,"Amsterdam", "History");
     }
 
     @Override
